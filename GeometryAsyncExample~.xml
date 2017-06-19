@@ -1,0 +1,327 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.7.dtd" >
+   <PATCH nodename="D:\GIT\GeometryAsync\GeometryAsyncExample.v4p" systemname="GeometryAsyncExample" filename="D:\GIT\GeometryAsync\GeometryAsyncExample.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="2880" top="630" width="18375" height="10935">
+   </BOUNDS>
+   <PACK Name="vvvv-Message" Version="2.9.6">
+   </PACK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="93" stayontop="1">
+   <BOUNDS type="Node" left="5010" top="8430" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5010" top="8430" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17790" top="1215" width="7800" height="6300">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   </NODE>
+   <NODE systemname="GouraudDirectional (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\GouraudDirectional.fx" nodename="GouraudDirectional (DX11.Effect)" componentmode="Hidden" id="94">
+   <BOUNDS type="Node" left="6120" top="5955" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="Group (DX11.Layer)" id="95">
+   <BOUNDS type="Node" left="5175" top="7995" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5175" top="7995" width="2400" height="1800">
+   </BOUNDS>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 4" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="95" srcpinname="Layer Out" dstnodeid="93" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Camera (Transform Orbit)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.53.161-gb080321d96\vvvv\nodes\modules\Camera (Transform Orbit).v4p" nodename="Camera (Transform Orbit)" componentmode="Hidden" id="97">
+   <BOUNDS type="Node" left="6990" top="7725" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="View" dstnodeid="93" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="97" srcpinname="Projection" dstnodeid="93" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="99">
+   <BOUNDS type="Node" left="6570" top="5445" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="0.21">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="99" srcpinname="Transform Out" dstnodeid="94" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="94" srcpinname="Layer" dstnodeid="95" dstpinname="Layer 4">
+   </LINK>
+   <NODE id="113" systemname="Box (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Box (DX11.Geometry)" componentmode="Hidden">
+   <BOUNDS type="Node" left="3615" top="4725" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3615" top="4725" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="112" systemname="GouraudDirectional (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\GouraudDirectional.fx" nodename="GouraudDirectional (DX11.Effect)" componentmode="Hidden">
+   <BOUNDS type="Node" left="3285" top="5970" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="111" systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden">
+   <BOUNDS type="Node" left="3885" top="5130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="21.21">
+   </PIN>
+   </NODE>
+   <NODE id="110" systemname="Rotate (Transform)" nodename="Rotate (Transform)" componentmode="Hidden">
+   <BOUNDS type="Node" left="3735" top="5550" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="98" systemname="Cursor (DX11 EditingFramework)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.53.161-gb080321d96\vvvv\nodes\modules\DX11\Cursor (DX11 EditingFramework).v4p" nodename="Cursor (DX11 EditingFramework)" componentmode="Hidden">
+   <BOUNDS type="Node" left="2325" top="5910" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Selection" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE id="96" systemname="AxisAndGrid (DX11)" filename="%VVVV%\packs\mp.dx\nodes\modules\essentials\AxisAndGrid (DX11).v4p" nodename="AxisAndGrid (DX11)" componentmode="Hidden">
+   <BOUNDS type="Node" left="495" top="5880" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="Layer" dstnodeid="95" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="98" srcpinname="Layer" dstnodeid="95" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="110" srcpinname="Transform Out" dstnodeid="112" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="111" srcpinname="Output" dstnodeid="110" dstpinname="Z">
+   </LINK>
+   <LINK srcnodeid="112" srcpinname="Layer" dstnodeid="95" dstpinname="Layer 3">
+   </LINK>
+   <LINK srcnodeid="113" srcpinname="Geometry Out" dstnodeid="112" dstpinname="Geometry">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="192">
+   <BOUNDS type="Box" left="6405" top="2235" width="2640" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6405" top="2235" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="assets\girl_walkcycle_test01.fbx">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|FBX (*.fbx)||*.fbx|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="193">
+   <BOUNDS type="Box" left="7350" top="2835" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7350" top="2835" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="194">
+   <BOUNDS type="Box" left="7395" top="4440" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7395" top="4440" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="195">
+   <BOUNDS type="Node" left="8235" top="4395" width="930" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8235" top="4395" width="930" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Progress|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="196">
+   <BOUNDS type="Box" left="7500" top="4020" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7500" top="4020" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="10309.9995117187">
+   </PIN>
+   </NODE>
+   <NODE systemname="GeometryFile (FBX Timing)" filename="GeometryFile (FBX Timing).v4p" nodename="GeometryFile (FBX Timing)" componentmode="Hidden" id="197">
+   <BOUNDS type="Node" left="6405" top="3435" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Estimated Loadtime" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="197" srcpinname="Geometry Out" dstnodeid="94" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="192" srcpinname="Output String" dstnodeid="197" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="193" srcpinname="Y Output Value" dstnodeid="197" dstpinname="Reload">
+   </LINK>
+   <LINK srcnodeid="197" srcpinname="Progress" dstnodeid="194" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="197" srcpinname="Estimated Loadtime" dstnodeid="196" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="198">
+   <BOUNDS type="Node" left="8340" top="4020" width="1680" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8340" top="4020" width="1680" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt; Estimated Loadtime|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="200">
+   <BOUNDS type="Node" left="405" top="330" width="6915" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Box" left="405" top="330" width="6915" height="1110">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Expect no proper error handling. When loading erronous files, one of the following can happen:&cr;&lf;&cr;&lf;1) you dont see the geometry but you dont get notified why&cr;&lf;2) The node becomes red and you can look inside for what the problem is&cr;&lf;3) vvvv crashes|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="199">
+   <BOUNDS type="Node" left="435" top="1665" width="7410" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="435" top="1665" width="7410" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Never load two things at once. vvvv will crash. Do not spread, do not load with two instances at a time.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="201">
+   <BOUNDS type="Node" left="105" top="2370" width="6300" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="105" top="2370" width="6195" height="345">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Use GeometryFile (FBX) if you just want to load meshes and don&apos;t care about the timing.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="202">
+   <BOUNDS type="Node" left="135" top="2775" width="5595" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="135" top="2775" width="5580" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Use GeometryFile (FBX Timing) if you want to have an estimated progress pin.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="203">
+   <BOUNDS type="Node" left="135" top="3150" width="8460" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="135" top="3150" width="4575" height="465">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Use CollectTimingData to open all files in a folder and collect their timing data into a file for better timing estimation.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="204">
+   <BOUNDS type="Node" left="165" top="3720" width="1110" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="165" top="3720" width="5730" height="615">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Empty the file saveData/timeData.xml if moving to a new machine, or working with a different type of fbx file, to not pollute the timing data you collect.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   </PATCH>
